@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "me.bzcoder.easywebview.sample"
+        minSdkVersion 18
+        targetSdkVersion 28
+        versionCode 6
+        versionName "2.6.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        // tencent x5
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // 其他 webview
+    signingConfigs {
+        release {
+            storeFile file("./webview")
+            storePassword "webview2018"
+            keyAlias "webview"
+            keyPassword "webview2018"
+        }
+        debug {
+            storeFile file("./webview")
+            storePassword "webview2018"
+            keyAlias "webview"
+            keyPassword "webview2018"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    implementation project(path: ':LibEasyWebview')
+
+    implementation 'com.github.BzCoder:EasyGlide:1.0.8'
+    implementation 'com.github.BzCoder:BigImageViewPager:4_4.0.5'
+
+
+}
