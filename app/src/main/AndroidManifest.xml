@@ -29,6 +29,7 @@
         tools:ignore="UnusedAttribute">
         <activity
             android:name="me.bzcoder.webview.MainActivity"
+            android:screenOrientation="portrait"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

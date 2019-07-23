@@ -190,7 +190,7 @@ RE.setImageClick = function () {
         objs[i].setAttribute('pos', i);
         objs[i].onclick = function () {
             window.control.log('pos:' + this.getAttribute('pos'));
-            window.control.clickImage(this.src, this.getAttribute('pos'),);
+            window.control.clickImage(this.src, this.getAttribute('pos'));
         }
     }
 }
