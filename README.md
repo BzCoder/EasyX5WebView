@@ -7,7 +7,12 @@ EasyX5WebView是基于腾讯X5浏览器v4.3.0的轻量级封装，主要为了�
 - [BigImageViewPager](https://github.com/BzCoder/BigImageViewPager)
 
 ## 演示
-![](https://github.com/BzCoder/EasyX5WebView/blob/master/art/GIF.gif)
+
+
+|  通用展示页BaseX5WebView                  | 新闻详情页RichWebView                    | 
+|:------------------------------:|:---------------------------------:|
+|![](art/CommonWebView.gif) | ![](art/RichWebView.gif) |
+
 
 ## 模块
 LibEasyWebview封装类中实现了以下两个功能：
@@ -43,8 +48,7 @@ LibEasyWebview封装类中实现了以下两个功能：
 参照[X5WebViewActivity](https://github.com/BzCoder/EasyX5WebView/blob/master/app/src/main/java/me/bzcoder/webview/tencentx5/X5WebViewActivity.java),实现IWebViewActivity接口。
 
 ###  新闻详情页RichWebView
-参照[RichWebViewActivity](https://github.com/BzCoder/EasyX5WebView/blob/master/app/src/main/java/me/bzcoder/webview/tencentx5/RichWebViewActivity.java)
-其中核心为以下方法。
+参照[RichWebViewActivity](https://github.com/BzCoder/EasyX5WebView/blob/master/app/src/main/java/me/bzcoder/webview/tencentx5/RichWebViewActivity.java),其中核心为以下方法。
 
 ```
  private void initData() {
