@@ -68,4 +68,4 @@ LibEasyWebview封装类中实现了以下两个功能：
 ```
  
 ## 建议
-由于WebView需求繁多，一套JS不能满足所有需求，所以推荐直接Clone到本地使用该库，JS方法可以在rich_editor中查看，根据实际需求对js进行编辑。Lib中还放入了字体文件font.tff，根据实际需求替换或者删除。
+由于WebView需求繁多，一套JS不能满足所有需求，所以推荐直接Clone到本地使用该库，JS方法可以在[rich_editor](https://github.com/BzCoder/EasyX5WebView/blob/master/LibEasyWebview/src/main/assets/rich_editor.js)中查看，根据实际需求对js进行编辑。Lib中还放入了字体文件font.tff，可以根据实际需求替换或者删除。
