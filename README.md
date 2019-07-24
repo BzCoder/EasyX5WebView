@@ -1,6 +1,6 @@
 # EasyX5WebView
-EasyX5WebView是基于腾讯X5浏览器v4.3.0的轻量级封装，主要为了易于使用，功能够用基本上也是够用的阶段。这里同样站在了前人的肩膀上。
-本库很多内容是来自于[WebViewStudy](https://github.com/BzCoder/WebViewStudy)，并以此为基础进行结构优化后的改造。
+EasyX5WebView是基于腾讯X5浏览器v4.3.0的轻量级封装，主要为了易于使用，功能基本上也是够用就行。这里同样站在了前人的肩膀上。
+本库很多内容是来自于[WebViewStudy](https://github.com/BzCoder/WebViewStudy)，并以此为基础进行结构优化的改造。
 
 示例工程引用以下两个库来完善图片的展示。
 - [EasyGlide](https://github.com/BzCoder/EasyGlide)
