@@ -27,6 +27,9 @@ import android.widget.Toast;
 
 import com.bzcoder.webview.sample.R;
 
+import cc.shinichi.library.ImagePreview;
+import cc.shinichi.library.view.listener.OnOriginProgressListener;
+import me.bzcoder.easyglide.EasyGlide;
 import me.bzcoder.easywebview.base.BaseX5WebView;
 import me.bzcoder.easywebview.common.X5WebChromeClient;
 import me.bzcoder.easywebview.common.X5WebViewClient;
@@ -72,6 +75,42 @@ public class X5WebViewActivity extends AppCompatActivity implements IWebViewActi
         initWebView();
         webView.loadUrl(mUrl);
         getDataFromBrowser(getIntent());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        webView.onResume();
+        // 支付宝网页版在打开文章详情之后,无法点击按钮下一步
+        webView.resumeTimers();
+        // 设置为横屏
+        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        webView.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        try {
+            videoFullView.removeAllViews();
+            if (webView != null) {
+                webView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+                webView.stopLoading();
+                webView.setWebChromeClient(null);
+                webView.setWebViewClient(null);
+                webView.destroy();
+                webView = null;
+            }
+        } catch (Exception e) {
+            Log.e("X5WebViewActivity", e.getMessage());
+        }
+        super.onDestroy();
     }
 
     private void getIntentData() {
@@ -292,8 +331,10 @@ public class X5WebViewActivity extends AppCompatActivity implements IWebViewActi
                         Log.e("picUrl", picUrl);
                         switch (which) {
                             case 0:
+                                showPreviewPhoto(picUrl);
                                 break;
                             case 1:
+                                EasyGlide.downloadImageToGallery(X5WebViewActivity.this,picUrl);
                                 break;
                             default:
                                 break;
@@ -326,42 +367,6 @@ public class X5WebViewActivity extends AppCompatActivity implements IWebViewActi
         return false;
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        webView.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        webView.onResume();
-        // 支付宝网页版在打开文章详情之后,无法点击按钮下一步
-        webView.resumeTimers();
-        // 设置为横屏
-        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        try {
-            videoFullView.removeAllViews();
-            if (webView != null) {
-                webView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-                webView.stopLoading();
-                webView.setWebChromeClient(null);
-                webView.setWebViewClient(null);
-                webView.destroy();
-                webView = null;
-            }
-        } catch (Exception e) {
-            Log.e("X5WebViewActivity", e.getMessage());
-        }
-        super.onDestroy();
-    }
-
     /**
      * 打开网页:
      *
@@ -383,8 +388,42 @@ public class X5WebViewActivity extends AppCompatActivity implements IWebViewActi
         mContext.startActivity(intent);
     }
 
+
     @Override
     public Activity getActivity() {
         return this;
+    }
+
+    private void showPreviewPhoto(String url) {
+        ImagePreview.getInstance()
+                .setContext(this)
+                .setImage(url)
+                .setFolderName("BigImageView/Download")
+                .setZoomTransitionDuration(300)
+                .setEnableClickClose(true)
+                .setEnableDragClose(true)
+                .setShowCloseButton(false)
+                .setShowDownButton(true)
+                .setShowIndicator(true)
+                // 设置失败时的占位图，默认为库中自带R.drawable.load_failed，设置为 0 时不显示
+                .setErrorPlaceHolder(R.drawable.load_failed)
+                // 设置查看原图时的百分比样式：库中带有一个样式：ImagePreview.PROGRESS_THEME_CIRCLE_TEXT，使用如下：
+                .setProgressLayoutId(ImagePreview.PROGRESS_THEME_CIRCLE_TEXT, new OnOriginProgressListener() {
+                    @Override
+                    public void progress(View parentView, int progress) {
+                        // 需要找到进度控件并设置百分比，回调中的parentView即传入的布局的根View，可通过parentView找到控件：
+                        ProgressBar progressBar = parentView.findViewById(R.id.sh_progress_view);
+                        TextView textView = parentView.findViewById(R.id.sh_progress_text);
+                        progressBar.setProgress(progress);
+                        String progressText = progress + "%";
+                        textView.setText(progressText);
+                    }
+
+                    @Override
+                    public void finish(View parentView) {
+
+                    }
+                })
+                .start();
     }
 }
