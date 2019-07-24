@@ -17,7 +17,7 @@ EasyX5WebView是基于腾讯X5浏览器v4.3.0的轻量级封装，主要为了�
 ## 模块
 LibEasyWebview封装类中实现了以下两个功能：
 - 通用展示页BaseX5WebView，封装了常用的WebView功能。
-- 新闻详情页RichWebView，用来展示新闻资讯，封装了大量JS方法。
+- 新闻详情页RichWebView，用来展示新闻资讯，封装了大量JS方法。添加设置默认图片，图片文字对齐，设置字体，图片点击回调等一些JS事件。
 
 ## 使用方法
 
