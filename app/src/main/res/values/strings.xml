@@ -19,4 +19,5 @@
     <string name="js_android">js与android原生代码互调</string>
     <string name="deeplink">DeepLink 测试</string>
     <string name="news_detail">新闻详情</string>
+    <string name="text_test">tbs测试页面</string>
 </resources>

@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         findViewById(R.id.bt_deeplink).setOnClickListener(this);
         findViewById(R.id.bt_openUrl).setOnClickListener(this);
+        findViewById(R.id.bt_x5test).setOnClickListener(this);
         findViewById(R.id.bt_baidu).setOnClickListener(this);
         findViewById(R.id.bt_movie).setOnClickListener(this);
         findViewById(R.id.bt_upload_photo).setOnClickListener(this);
@@ -62,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.bt_openUrl:
                 openUrl();
+                break;
+            case R.id.bt_x5test:// 百度一下
+                String x5testUrl = "http://debugtbs.qq.com";
+                loadUrl(x5testUrl, "X5测试页");
                 break;
             case R.id.bt_baidu:// 百度一下
                 String baiDuUrl = "http://www.baidu.com";
