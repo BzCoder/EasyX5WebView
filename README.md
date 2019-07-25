@@ -1,6 +1,6 @@
 # EasyX5WebView
-EasyX5WebView是基于腾讯X5浏览器v4.3.0的轻量级封装，主要为了易于使用，功能够用基本上也是够用的阶段。这里同样站在了前人的肩膀上。
-本库很多内容是来自于[WebViewStudy](https://github.com/BzCoder/WebViewStudy)，并以此为基础进行结构优化后的改造。
+EasyX5WebView是基于腾讯X5浏览器v4.3.0的轻量级封装，主要为了易于使用，功能基本上也是够用就行。这里同样站在了前人的肩膀上。
+本库很多内容是来自于[WebViewStudy](https://github.com/BzCoder/WebViewStudy)，其中还演示了许多WebView的使用方法，本项目也是以此为基础进行结构优化的改造。
 
 示例工程引用以下两个库来完善图片的展示。
 - [EasyGlide](https://github.com/BzCoder/EasyGlide)
@@ -17,7 +17,7 @@ EasyX5WebView是基于腾讯X5浏览器v4.3.0的轻量级封装，主要为了�
 ## 模块
 LibEasyWebview封装类中实现了以下两个功能：
 - 通用展示页BaseX5WebView，封装了常用的WebView功能。
-- 新闻详情页RichWebView，用来展示新闻资讯，封装了大量JS方法。
+- 新闻详情页RichWebView，用来展示新闻资讯，封装了大量JS方法。添加设置默认图片，图片文字对齐，设置字体，图片点击回调等一些JS事件。
 
 ## 使用方法
 
@@ -68,4 +68,4 @@ LibEasyWebview封装类中实现了以下两个功能：
 ```
  
 ## 建议
-由于WebView需求繁多，一套JS不能满足所有需求，所以推荐直接Clone到本地使用该库，JS方法可以在rich_editor中查看，根据实际需求对js进行编辑。Lib中还放入了字体文件font.tff，根据实际需求替换或者删除。
+由于WebView需求繁多，一套JS不能满足所有需求，所以推荐直接Clone到本地使用该库，JS方法可以在[rich_editor](https://github.com/BzCoder/EasyX5WebView/blob/master/LibEasyWebview/src/main/assets/rich_editor.js)中查看，根据实际需求对js进行编辑。Lib中还放入了字体文件font.tff，可以根据实际需求替换或者删除。
