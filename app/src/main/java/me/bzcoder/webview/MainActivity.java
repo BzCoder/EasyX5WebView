@@ -18,10 +18,7 @@ import me.bzcoder.webview.tencentx5.RichWebViewActivity;
 import me.bzcoder.webview.tencentx5.X5WebViewActivity;
 import me.bzcoder.webview.utils.StatusBarUtil;
 
-/**
- * Link to: https://github.com/youlookwhat/WebViewStudy
- * contact me: https://www.jianshu.com/u/e43c6e979831
- */
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     // 是否开启了主页，没有开启则会返回主页
@@ -69,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 loadUrl(x5testUrl, "X5测试页");
                 break;
             case R.id.bt_baidu:// 百度一下
-                String baiDuUrl = "http://www.baidu.com";
+                String baiDuUrl = "https://v.douyin.com/G1o1R7/";
                 loadUrl(baiDuUrl, "百度一下");
                 break;
             case R.id.bt_movie:// 网络视频
