@@ -3,9 +3,9 @@ package me.bzcoder.webview;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatEditText;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 loadUrl(x5testUrl, "X5测试页");
                 break;
             case R.id.bt_baidu:// 百度一下
-                String baiDuUrl = "https://v.douyin.com/G1o1R7/";
+                String baiDuUrl = "https://www.baidu.com";
                 loadUrl(baiDuUrl, "百度一下");
                 break;
             case R.id.bt_movie:// 网络视频
