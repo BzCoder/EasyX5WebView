@@ -2,11 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "me.bzcoder.easywebview.sample"
         minSdkVersion 18
-        targetSdkVersion 28
+        targetSdkVersion 32
         versionCode 6
         versionName "2.6.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -51,11 +50,11 @@ dependencies {
     })
     implementation 'androidx.appcompat:appcompat:1.0.0'
     testImplementation 'junit:junit:4.12'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
     implementation project(path: ':LibEasyWebview')
 
-    implementation 'com.github.BzCoder:EasyGlide:1.0.8'
+    implementation 'com.github.BzCoder:EasyGlide:2.0.1'
     implementation 'com.github.BzCoder:BigImageViewPager:4_4.0.5'
 
 

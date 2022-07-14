@@ -29,8 +29,9 @@
         tools:ignore="UnusedAttribute">
         <activity
             android:name="me.bzcoder.webview.MainActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:launchMode="singleTask">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -38,7 +39,9 @@
         </activity>
 
         <!--用于DeepLink，html跳到此页面  scheme_Adr: 'will://link/testid',-->
-        <activity android:name="me.bzcoder.webview.DeepLinkActivity">
+        <activity
+            android:name="me.bzcoder.webview.DeepLinkActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -57,6 +60,7 @@
         <activity
             android:name="me.bzcoder.webview.tencentx5.X5WebViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true"
             android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
