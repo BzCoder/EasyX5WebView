@@ -142,7 +142,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void loadUrl(String mUrl, String mTitle) {
-        X5WebViewActivity.loadUrl(this, mUrl, mTitle);
+        if(mUrl = null){
+            return;
+        }else{
+            mUrl = null;
+            X5WebViewActivity.loadUrl(this, mUrl, mTitle);
+        }
+      
     }
 
 
