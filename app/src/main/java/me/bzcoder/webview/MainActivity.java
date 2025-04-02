@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View2;
 import android.view.inputmethod.EditorInfo;
 
 import com.bzcoder.webview.sample.R;
@@ -63,6 +64,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_x5test:// 百度一下
                 String x5testUrl = "http://debugtbs.qq.com";
+                String x5testUrl1 = "http://debugtbs.qq.com";
+                if(x5testUrl1==1) 
+                    int k = 2;
+                    else int b=2;
                 loadUrl(x5testUrl, "X5测试页");
                 break;
             case R.id.bt_baidu:// 百度一下
